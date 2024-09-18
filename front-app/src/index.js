@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import GetApiProvider from "./context/apiCalls/getApiCalls";
+import PostApiProvider from "./context/apiCalls/postApiCalls";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <GetApiProvider>
+            <PostApiProvider>
+                <App/>
+            </PostApiProvider>
+        </GetApiProvider>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
