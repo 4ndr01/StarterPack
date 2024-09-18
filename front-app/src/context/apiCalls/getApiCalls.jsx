@@ -6,7 +6,7 @@ export default function GetApiProvider(props) {
     return (
         <GetApiContext.Provider
             value={{
-                getTags: API.getTags,
+                getJsp: API.getJsp,
             }}>
             {props.children}
         </GetApiContext.Provider>
@@ -14,14 +14,14 @@ export default function GetApiProvider(props) {
 }
 const API_ENDPOINT = "bonjour"
 const API = {
-    getTags: async () => {
+    getJsp: async () => {
         const header = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
         }
-        const response = await fetch(`${API_ENDPOINT}/tag`, header);
+        const response = await fetch(`${API_ENDPOINT}/`, header);
         const data = await response.json();
         return data;
     },
